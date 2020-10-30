@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: springboot-rocketmq-demo-consumer
+server:
+  port: 8081
+rocketmq:
+  # rocketmq 地址
+  name-server: 139.196.190.46:9876
