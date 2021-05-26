@@ -4,6 +4,8 @@ import me.jianghs.mqdemo.producer.dto.Message;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -25,8 +27,8 @@ public class TestController {
     /**
      * 普通消息投递
      */
-    @GetMapping("/test")
-    public String test(String msg) {
+    @GetMapping("/rocket-mq")
+    public String test(@RequestParam(value = "msg", required = false) String msg) {
         Message message = new Message();
         message.setId(UUID.randomUUID().toString());
         message.setText(msg);
